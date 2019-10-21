@@ -10,9 +10,17 @@ export function reducer (state, action){
                   })
 
         case "TOGGLE_TASK":
-            return{
-                
-            }
+            return(
+                state.map(task => {
+                    if (task.id === action.payload) {
+                      return {
+                        ...state, 
+                        completed: !task.completed
+                      }
+                    }
+                })
+            )
+            
 
         default: 
             return state;
@@ -20,8 +28,8 @@ export function reducer (state, action){
     }
 }
 
-export const initialState = {
+export const initialState = [{
     name: 'Learn about reducers',
     completed: false,
     id: Date.now()
-}
+}]

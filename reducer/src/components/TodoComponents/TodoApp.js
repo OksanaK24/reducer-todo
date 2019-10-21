@@ -34,19 +34,20 @@ export default function App(){
     // )
   }
 
-  const toggleTask = ( taskID) => {
+  const toggleTask = ( taskID ) => {
 
-    setTasks(tasks.map(task => {
-        if (task.id === taskID) {
-          return {
-            ...task, 
-            completed: !task.completed
-          }
-        } else {
-          return task
-        }
-      })
-    )
+    dispatch({ type: "TOGGLE_TASK", payload: taskID })
+    // setTasks(tasks.map(task => {
+    //     if (task.id === taskID) {
+    //       return {
+    //         ...task, 
+    //         completed: !task.completed
+    //       }
+    //     } else {
+    //       return task
+    //     }
+    //   })
+    // )
   }
 
   return(
@@ -56,7 +57,7 @@ export default function App(){
         clearCompleted = {clearCompleted}
       />
       <ToDoList 
-        tasks = {tasks}
+        tasks = {state}
         toggleTask={toggleTask}
       />
     </div>
