@@ -14,9 +14,11 @@ export function reducer (state, action){
                 state.map(task => {
                     if (task.id === action.payload) {
                       return {
-                        ...state, 
+                        ...task, 
                         completed: !task.completed
                       }
+                    }else {
+                        return task
                     }
                 })
             )
