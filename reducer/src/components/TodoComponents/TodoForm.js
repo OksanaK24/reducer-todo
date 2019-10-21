@@ -1,7 +1,9 @@
-import React, {useState} from "react";
+import React, {useState, useReducer} from "react";
+import { initialState, reducer } from "../../reducers/reducer";
 
 export default function ToDoForm(props) {
   const [value, setValue] = useState("");
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const handleChange = (event) => {
     setValue(event.target.value)
