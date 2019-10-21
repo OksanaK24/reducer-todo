@@ -5,7 +5,7 @@ import "./Todo.css";
 import { initialState, reducer } from "../../reducers/reducer";
 
 export default function App(){
-  const [tasks, setTasks] = useState([]);
+  // const [tasks, setTasks] = useState([]);
   const [state, dispatch] = useReducer(reducer, initialState);
  
   const addTask = (event, taskName) => {
